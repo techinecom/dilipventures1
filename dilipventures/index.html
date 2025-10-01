@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dilip Ventures</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Roboto',sans-serif;color:#333;background:#f4f4f4;line-height:1.6;}
+
+/* Header */
+header{position:fixed;top:0;width:100%;background:#0a1d37;color:white;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+header .logo img{height:55px;}
+nav a{color:white;margin-left:25px;font-weight:500;transition:0.3s;}
+nav a:hover{color:#ff9800;}
+
+/* Hero */
+.hero{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    overflow:hidden;
+    background:url("C:/dilipventures/banner.jpg") center/cover no-repeat;
+}
+.hero::before{
+    content:'';position:absolute;top:0;left:0;width:100%;height:100%;
+    background:linear-gradient(to bottom right, rgba(10,29,55,0.6), rgba(255,152,0,0.4));
+    z-index:0;
+}
+.hero h1, .hero p, .hero button{position:relative;z-index:1;}
+.hero h1{font-size:6vw;margin-bottom:20px;}
+.hero p{font-size:2.5vw;margin-bottom:30px;}
+.hero button{padding:1vw 2.5vw;background:#ff9800;color:white;border:none;border-radius:1vw;font-weight:bold;transition:0.3s;}
+.hero button:hover{background:#e68900;}
+
+/* Sections */
+section{padding:8vw 5%;width:100%;}
+h2{text-align:center;margin-bottom:3vw;font-size:3vw;color:#0a1d37;position:relative;}
+h2::after{content:'';width:60px;height:4px;background:#ff9800;display:block;margin:15px auto;border-radius:2px;}
+
+/* Projects Grid */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px,1fr));gap:1.5rem;}
+.project-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:transform 0.3s;}
+.project-card:hover{transform:translateY(-5px);}
+.project-card img{width:100%;height:200px;object-fit:cover;}
+.project-card h3{margin:15px;font-size:1.2rem;color:#0a1d37;}
+.project-card p{margin:0 15px 15px;color:#555;}
+
+/* Reviews carousel */
+#review-carousel{overflow:hidden;max-width:1000px;margin:0 auto;}
+.reviews-inner{display:flex;animation:slide 20s linear infinite;}
+.reviews-inner .card{flex-shrink:0;width:250px;margin-right:15px;background:white;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);padding:15px;display:flex;gap:10px;}
+.reviews-inner img{border-radius:50%;width:50px;height:50px;}
+@keyframes slide{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
+/* Contact */
+.contact form{display:flex;flex-direction:column;margin:0 auto;background:white;padding:3vw;border-radius:1.5vw;box-shadow:0 0.6vw 1.5vw rgba(0,0,0,0.15);max-width:500px;}
+.contact input,.contact textarea,.contact button{margin:1vw 0;padding:1vw;border-radius:1vw;border:1px solid #ccc;font-size:1rem;}
+.contact button{background:#0a1d37;color:white;border:none;font-weight:bold;transition:0.3s;}
+.contact button:hover{background:#ff9800;}
+
+/* WhatsApp */
+#whatsapp{position:fixed;bottom:3%;right:3%;background:#25D366;color:white;width:60px;height:60px;display:flex;justify-content:center;align-items:center;border-radius:50%;font-size:28px;cursor:pointer;box-shadow:0 0.6vw 1.5vw rgba(0,0,0,0.3);}
+
+/* Popup */
+#popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);display:flex;justify-content:center;align-items:center;visibility:hidden;opacity:0;transition:0.5s;z-index:2000;}
+#popup.active{visibility:visible;opacity:1;}
+#popup .popup-content{background:white;padding:2rem;border-radius:1rem;max-width:400px;width:90%;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,0.3);position:relative;}
+#popup .popup-content input,#popup .popup-content button{width:100%;margin:10px 0;padding:10px;border-radius:8px;border:1px solid #ccc;font-size:1rem;}
+#popup .popup-content button{background:#0a1d37;color:white;border:none;font-weight:bold;transition:0.3s;}
+#popup .popup-content button:hover{background:#ff9800;}
+#popup .close{position:absolute;top:10px;right:15px;font-size:1.5rem;cursor:pointer;}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero h1{font-size:10vw;}
+  .hero p{font-size:5vw;}
+  .hero button{padding:3vw 6vw;font-size:4vw;}
+  h2{font-size:7vw;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<header>
+  <div class="logo">
+    <a href="#home">
+      <img src="C:\dilipventures\logos\company logo.png" alt="Dilip Venture S" class="logo-img">
+    </a>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<style>
+/* ===== Header Container ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background: #fffffff3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* ===== Logo ===== */
+.logo img.logo-img {
+  height: 200px;   /* prominent logo size */
+  width: auto;     /* keep ratio */
+  transition: transform 0.3s;
+}
+.logo img.logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Navigation Links ===== */
+header nav {
+  display: flex;
+  gap: 20px;
+}
+header nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+header nav a:hover {
+  background: #ff8800;
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  header { flex-direction: column; padding: 15px 20px; }
+  header nav { gap: 20px; margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+  .logo img.logo-img { height: 100px; }
+}
+@media (max-width: 576px) {
+  .logo img.logo-img { height: 80px; }
+  header nav a { font-size: 0.9rem; padding: 6px 10px; }
+}
+</style>
+
+</header>
+
+<section id="home" class="hero">
+  <h1>Welcome to Dilip Ventures</h1>
+  <p>Assisting homebuyers with a decade of experience</p>
+  <button onclick="openPopup()">Get in Touch</button>
+</section>
+
+<!-- ====== About Us Section ====== -->
+<section class="about">
+  <div class="about-container">
+    <div class="about-image">
+      <img src= "C:\dilipventures\dilip.png" alt="Founder Photo">
+    </div>
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        <strong>Dilip Ventures</strong>, led by <strong>Dilip R</strong>  , brings over 5 years of experience in the real estate industry. We specialize in providing exceptional service and guidance for luxury properties, ensuring every client finds the perfect home or investment. Our dedicated team is committed to offering personalized support, expert advice, and a seamless experience, making your property journey smooth and rewarding. We take pride in understanding our clients’ unique needs and delivering solutions that exceed expectations. From property selection to final acquisition, Dilip Venture S is your trusted partner in real estate success.
+      </p>
+      <p>
+        Our vision is to simplify real estate for everyone and provide expert 
+        guidance on both property buying and home loan assistance.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ====== About Us Section ====== */
+  .about {
+    padding: 3rem 2rem;
+    background: #f8f9fa;
+  }
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .about-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ff7a18; /* Highlight border */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .about-text {
+    flex: 1;
+    min-width: 280px;
+  }
+  .about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  .about-text p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .about-text {
+      max-width: 600px;
+    }
+  }
+</style>
+
+
+<section id="projects">
+  <h2>Our Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x250" alt="Luxury Apartments">
+      <h3>Luxury Apartments</h3>
+      <p>Premium apartments in prime locations, 1200 sq ft, ready-to-live.</p>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x250" alt="Modern Villas">
+      <h3>Modern Villas</h3>
+      <p>Spacious villas, 2500 sq ft, premium amenities included.</p>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x250" alt="Commercial Spaces">
+      <h3>Commercial Spaces</h3>
+      <p>State-of-the-art commercial projects, 5000 sq ft, prime location.</p>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x250" alt="Urban Flats">
+      <h3>Urban Flats</h3>
+      <p>Modern urban flats, 900 sq ft, near key amenities.</p>
+    </div>
+  </div>
+</section>
+<!-- Do You Need Home Loan Section -->
+<section id="loan" class="loan-section">
+  <div class="loan-card">
+    <img src="your-photo.jpg" alt="Home Loan Help" class="loan-photo">
+    <div class="loan-text">
+      <h2>Do You Need Home Loan Assistance?</h2>
+      <p>We help you connect with trusted banks and get the best home loan deals hassle-free. 
+         Our experts guide you at every step to make your dream home a reality.</p>
+      <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .loan-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f9f9f9, #eaf6ff);
+  }
+
+  .loan-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 800px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    animation: slideUp 1s ease-in-out;
+  }
+
+  .loan-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0077ff;
+    flex-shrink: 0;
+  }
+
+  .loan-text {
+    text-align: left;
+  }
+
+  .loan-text h2 {
+    margin-bottom: 10px;
+    color: #222;
+  }
+
+  .loan-text p {
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  .whatsapp-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #25d366;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .whatsapp-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<section id="happy-customers" style="padding:3rem 0; background:#f8f9fa;">
+  <h2 style="text-align:center; margin-bottom:2rem;">Happy Customers</h2>
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="customer-card">
+        <img src="C:\dilipventures\reviews\amit.jpg" alt="Amit">
+        <h4>Amit Sharma</h4>
+        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <img src="C:\dilipventures\logos\google logo.png" class="google-logo">
+        <p class="review">Excellent service! Professional guidance for luxury properties. Highly recommended.</p>
+      </div>
+      <div class="customer-card">
+        <img src="C:\dilipventures\reviews\pooja.jpg" alt="Pooja">
+        <h4>Pooja Verma</h4>
+        <p class="stars">⭐⭐⭐⭐</p>
+        <img src="C:\dilipventures\logos\google logo.png" class="google-logo">
+        <p class="review">Very satisfied with the support and guidance. Great experience overall!</p>
+      </div>
+      <div class="customer-card">
+        <img src= "C:\dilipventures\reviews\rohith.png" alt="Rohit">
+        <h4>Rohit Kumar</h4>
+        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <img src="C:\dilipventures\logos\google logo.png" class="google-logo">
+        <p class="review">Smooth process from start to finish. Excellent luxury property options.</p>
+      </div>
+      <!-- duplicate cards for seamless rotation -->
+      <div class="customer-card">
+        <img src="C:\dilipventures\reviews\amit.jpg" alt="Amit">
+        <h4>Amit Sharma</h4>
+        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <img src="C:\dilipventures\logos\google logo.png" class="google-logo">
+        <p class="review">Excellent service! Professional guidance for luxury properties. Highly recommended.</p>
+      </div>
+      <div class="customer-card">
+        <img src="C:\dilipventures\reviews\pooja.jpg" alt="Pooja">
+        <h4>Pooja Verma</h4>
+        <p class="stars">⭐⭐⭐⭐</p>
+        <img src="C:\dilipventures\logos\google logo.png" class="google-logo">
+        <p class="review">Very satisfied with the support and guidance. Great experience overall!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 20s linear infinite;
+}
+
+.customer-card {
+  flex: 0 0 250px;
+  background:#fff;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.customer-card img {
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+}
+
+.customer-card h4 { margin:5px 0; color:#333; font-size:1rem; }
+.customer-card .stars { color:#ffb400; margin:5px 0; }
+.customer-card .google-logo { width:20px; height:20px; margin:5px 0; }
+.customer-card .review { font-size:0.85rem; color:#555; }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media(max-width:768px){
+  .customer-card { flex:0 0 200px; }
+  .carousel-track { gap:15px; }
+}
+</style>
+
+<script>
+  // This JS ensures the carousel duplicates cards for seamless looping dynamically
+  const track = document.getElementById('carouselTrack');
+  const cards = Array.from(track.children);
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
+</script>
+
+
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact">
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Phone" required>
+      <textarea placeholder="Message" rows="4"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- WhatsApp -->
+<div id="whatsapp" onclick="window.open('https://wa.me/1234567890','_blank')">💬</div>
+
+
+<!-- Requirement Form Popup -->
+<div id="requirementPopup" style="display:none;">
+  <div style="
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    text-align: left;
+    box-sizing: border-box;
+    animation: slideUp 0.5s;
+    overflow: hidden;
+    max-height: 90vh; /* prevents overflow on very small screens */
+  ">
+    <span onclick="closePopup()" style="
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #555;
+    ">&times;</span>
+    <h2 style="text-align:center; margin-bottom: 20px; font-size:1.6rem; color:#333;">Tell Us Your Requirement</h2>
+    <form id="requirementForm" style="display:flex; flex-direction:column; gap:12px;">
+      <input type="text" name="name" placeholder="Your Name" required style="
+        width: 100%;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 1rem;
+      ">
+      <input type="text" name="contact" placeholder="Phone / Email" required style="
+        width: 100%;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 1rem;
+      ">
+      <textarea name="message" placeholder="Describe your requirement" required style="
+        width: 100%;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        resize: vertical;
+        min-height: 100px;
+        max-height: 200px; /* keeps it from overflowing */
+        font-size: 1rem;
+        overflow-y: auto;
+      "></textarea>
+      <button type="submit" style="
+        width: 100%;
+        padding: 12px;
+        background: #007BFF;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+      ">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- Overlay & Animations -->
+<style>
+  #requirementPopup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 10px;
+    animation: fadeIn 0.5s;
+  }
+
+  @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+  @keyframes slideUp { from {transform: translateY(50px); opacity:0;} to {transform: translateY(0); opacity:1;} }
+
+  @media (max-width: 500px) {
+    #requirementPopup > div {
+      padding: 20px 15px;
+      max-width: 95%;
+    }
+    #requirementPopup textarea {
+      max-height: 150px;
+    }
+  }
+</style>
+
+<!-- JS -->
+<script>
+  function closePopup() {
+    document.getElementById('requirementPopup').style.display = 'none';
+  }
+
+  // Show popup after 30 seconds
+  setTimeout(() => {
+    document.getElementById('requirementPopup').style.display = 'flex';
+  }, 30000);
+
+  // Handle form submission
+  document.getElementById('requirementForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you! Your requirement has been submitted.');
+    closePopup();
+    this.reset();
+  });
+</script>
+<!-- Fixed Bottom Contact Bar -->
+<div class="bottom-contact-bar">"
+  <a href="tel:+911234567890" title="Call"><img src= "c:\dilipventures\logos\phone logo.png" alt="Call"></a>
+  <a href="mailto:info@example.com" title="Email"><img src="C:\dilipventures\logos\mail logo.png" alt="Mail"></a>
+  <a href="https://wa.me/911234567890" target="_blank" title="WhatsApp"><img src="C:\dilipventures\logos\whatsapp logo.png" alt="WhatsApp"></a>
+</div>
+
+<style>
+  .bottom-contact-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 0;
+    z-index: 9999;
+  }
+  .bottom-contact-bar a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+  }
+  .bottom-contact-bar a:hover img {
+    transform: scale(1.2);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .bottom-contact-bar {
+      gap: 15px;
+      padding: 8px 0;
+    }
+    .bottom-contact-bar a img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+</style>
+
+<script>
+  function openPopup() {
+    document.getElementById('requirementPopup').style.display = 'flex';
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
